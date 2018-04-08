@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Struts2 DTD -->
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="utf-8" />
+	<constant name="struts.devMode" value="true" />
+	<package name="process" extends="struts-default">
+		<!-- Book -->
+		<action name="allBooksPro" class="action.BooksAction">
+			<result name="success">/bookstore/jsp/bookManage.jsp</result>
+		</action>
+
+		<action name="addBookPro" class="action.BooksAction" method="addBook">
+			<result name="success">/bookstore/jsp/bookManage.jsp</result>
+		</action>
+
+		<action name="updateBookPro" class="action.BooksAction" method="updateBook">
+			<result name="success">/bookstore/jsp/bookManage.jsp</result>
+		</action>
+
+		<action name="deleteBookPro" class="action.BooksAction" method="deleteBook">
+			<result name="success">/bookstore/jsp/bookManage.jsp</result>
+		</action>
+
+		<action name="bookDetails" class="action.BooksAction" method="getMoreInfo">
+			<result>/index.jsp?page=bookdetails</result>
+		</action>
+
+		<action name="search" class="action.BooksAction" method="bookInfoByKey">
+			<result>/index.jsp?page=books</result>
+		</action>
+
+		<action name="books" class="action.BooksAction" method="allBookInfos">
+			<result>/bookstore/jsp/books.jsp</result>
+		</action>
+
+		<action name="changeDescription" class="action.BooksAction" method="changeDescription">
+			<result>/bookstore/jsp/books.jsp</result>
+		</action>
+
+		<action name="getBooksByCategory" class="action.BooksAction" method="getBooksByCategory">
+			<result name="success">/index.jsp?page=books</result>
+		</action>
+
+
+		<!--inputStream 用于向ajax返回data-->
+		<action name="getBookDetail" class="action.BooksAction" method="getBookDetailAJAX">
+			<result name="success" type="stream">
+				<param name="inputName">result</param>
+			</result>
+		</action>
+
+		<action name="getBookRecord" class="action.BooksAction" method="getBookRecord">
+			<result name="success" type="stream">
+				<param name="inputName">record</param>
+			</result>
+		</action>
+
+		<!-- Order -->
+		<action name="allOrdersPro" class="action.OrdersAction">
+			<result name="success">/bookstore/jsp/orderManage.jsp</result>
+		</action>
+		<action name="addOrderPro" class="action.OrdersAction" method="addOrder">
+			<result name="success">/bookstore/jsp/orderManage.jsp</result>
+		</action>
+		<action name="updateOrderPro" class="action.OrdersAction" method="updateOrder">
+			<result name="success">/bookstore/jsp/orderManage.jsp</result>
+		</action>
+		<action name="deleteOrderPro" class="action.OrdersAction" method="deleteOrder">
+			<result name="success">/bookstore/jsp/orderManage.jsp</result>
+		</action>
+
+		<action name="getOrderDetail" class="action.OrdersAction" method="getOrderDetail">
+			<result name="success" type="stream">
+				<param name="inputName">result</param>
+			</result>
+		</action>
+
+		<action name="updateOrderitem" class="action.OrdersAction" method="updateOrderitem">
+			<result name="success">/bookstore/jsp/orderManage.jsp</result>
+		</action>
+
+		<action name="addOrderitem" class="action.OrdersAction" method="addOrderitem">
+			<result name="success">/bookstore/jsp/orderManage.jsp</result>
+		</action>
+
+		<action name="deleteOrderitem" class="action.OrdersAction" method="deleteOrderitem">
+			<result name="success">/bookstore/jsp/orderManage.jsp</result>
+		</action>
+
+
+		<!-- User -->
+		<action name="allUsersPro" class="action.UsersAction">
+			<result name="success">/bookstore/jsp/userManage.jsp</result>
+		</action>
+		<action name="addUserPro" class="action.UsersAction" method="addUser">
+			<result name="success">/bookstore/jsp/userManage.jsp</result>
+		</action>
+		<action name="updateUserPro" class="action.UsersAction" method="updateUser">
+			<result name="success">/bookstore/jsp/userManage.jsp</result>
+		</action>
+		<action name="deleteUserPro" class="action.UsersAction" method="deleteUser">
+			<result name="success">/bookstore/jsp/userManage.jsp</result>
+		</action>
+		
+		<action name="login" class="action.UsersAction" method="login">
+       		<result name="error">/index.jsp?page=login</result>
+       		<result name="success">/index.jsp</result>
+     	</action>
+     	
+     	<action name="signup" class="action.UsersAction" method="signup">
+       		<result name="error">/index.jsp?page=register</result>
+       		<result name="success">/index.jsp?page=login</result>
+     	</action>
+     	
+     	<action name="logout" class="action.UsersAction" method="logout">
+       		<result>index.jsp</result>
+     	</action>
+
+		<action name="getUserDetail" class="action.UsersAction" method="getUserDetail">
+			<result name="success" type="stream">
+				<param name="inputName">result</param>
+			</result>
+		</action>
+
+		<action name="getUserInfo" class="action.UsersAction" method="getUserInfo" >
+			<result>/index.jsp?page=userInfo</result>
+		</action>
+
+		<action name="modifyUserInfo" class="action.UsersAction" method="modifyUserInfo">
+			<result>/index.jsp?page=userInfo</result>
+		</action>
+
+		<action name="changeProfile" class="action.UsersAction" method="changeProfile">
+			<result>/bookstore/jsp/userManage.jsp</result>
+		</action>
+
+		
+		<action name="showCart" class="action.ShoppingAction">
+       		<result>/index.jsp?page=cart</result>
+	    </action>
+	     
+	    <action name="addToCart" class="action.ShoppingAction" method="addToCart">
+	        <result>/index.jsp?page=cart</result>
+	    </action>
+	     
+	    <action name="updateCart" class="action.ShoppingAction" method="updateCart">
+	        <result>/index.jsp?page=cart</result>
+	    </action>
+	     
+	    <action name="removeFromCart" class="action.ShoppingAction" method="removeFromCart">
+	        <result>/index.jsp?page=cart</result>
+	    </action>
+		
+		<action name="checkout" class="action.ShoppingAction" method="checkout">
+       		<result>/index.jsp?page=paid</result>
+       		<result name="input">/index.jsp?page=login</result>
+       		<result name="error">/index.jsp?page=error</result>
+     	</action>
+		
+		<action name="getUserOrder" class="action.OrdersAction" method="getUserOrder">
+       		<result>/index.jsp?page=orders</result>
+     	</action>
+
+		<action name="allCategories" class="action.BooksAction">
+			<result name="success">/bookstore/jsp/categoryManage.jsp</result>
+		</action>
+
+		<action name="deleteCategory" class="action.BooksAction" method="deleteCategory">
+			<result name="success">/bookstore/jsp/categoryManage.jsp</result>
+		</action>
+
+		<action name="categories" class="action.BooksAction">
+			<result>/bookstore/jsp/categories.jsp</result>
+		</action>
+
+	</package>
+
+	<package name="textJson" extends="json-default">
+		<action name="uploadAvator" class="action.UsersAction" method="uploadAvator">
+			<result name="success" type="json">
+				<param name="root">jsonData</param>
+			</result>
+			<result name="error" type="json">
+				<param name="root">jsonData</param>
+			</result>
+		</action>
+
+		<action name="updatePwd" class="action.UsersAction" method="updatePwd">
+			<result name="success" type="json">
+				<param name="root">jsonData</param>
+			</result>
+			<result name="error" type="json">
+				<param name="root">jsonData</param>
+			</result>
+		</action>
+
+		<action name="uploadImage" class="action.BooksAction" method="uploadImage">
+			<result name="success" type="json">
+				<param name="root">jsonData</param>
+			</result>
+			<result name="error" type="json">
+				<param name="root">jsonData</param>
+			</result>
+		</action>
+
+		<action name="addCategory" class="action.BooksAction" method="addCategory">
+			<result name="success" type="json">
+				<param name="root">jsonData</param>
+			</result>
+		</action>
+	</package>
+</struts>

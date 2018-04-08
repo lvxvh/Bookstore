@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="model.mysql.Order" table="orders">
+		<id name="orderId" type="int">
+			<column name="orderId" />
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="int">
+			<column name="userid" />
+		</property>
+		<property name="date" type="java.sql.Timestamp">
+			<column name="date" />
+		</property>
+	</class>
+</hibernate-mapping>
